@@ -1,0 +1,881 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi AI - Smart Farming Technology Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+          colors: {
+            background: "var(--background)",
+            foreground: "var(--foreground)",
+            card: {
+              DEFAULT: "var(--card)",
+              foreground: "var(--card-foreground)",
+            },
+            popover: {
+              DEFAULT: "var(--popover)",
+              foreground: "var(--popover-foreground)",
+            },
+            primary: {
+              DEFAULT: "var(--primary)",
+              foreground: "var(--primary-foreground)",
+            },
+            secondary: {
+              DEFAULT: "var(--secondary)",
+              foreground: "var(--secondary-foreground)",
+            },
+            muted: {
+              DEFAULT: "var(--muted)",
+              foreground: "var(--muted-foreground)",
+            },
+            accent: {
+              DEFAULT: "var(--accent)",
+              foreground: "var(--accent-foreground)",
+            },
+            destructive: {
+              DEFAULT: "var(--destructive)",
+              foreground: "var(--destructive-foreground)",
+            },
+            border: "var(--border)",
+            input: "var(--input)",
+            ring: "var(--ring)",
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+          }
+        },
+      }
+    };
+    </script>
+    
+    <style>
+    :root {
+      --background: hsl(60 9% 98%);
+      --foreground: hsl(24 10% 10%);
+      --card: hsl(0 0% 100%);
+      --card-foreground: hsl(24 10% 10%);
+      --popover: hsl(0 0% 100%);
+      --popover-foreground: hsl(24 10% 10%);
+      --primary: hsl(142 76% 36%);
+      --primary-foreground: hsl(0 0% 98%);
+      --secondary: hsl(33 88% 30%);
+      --secondary-foreground: hsl(0 0% 98%);
+      --muted: hsl(60 5% 96%);
+      --muted-foreground: hsl(25 5% 45%);
+      --accent: hsl(199 89% 48%);
+      --accent-foreground: hsl(0 0% 98%);
+      --destructive: hsl(0 84% 60%);
+      --destructive-foreground: hsl(0 0% 98%);
+      --border: hsl(20 6% 90%);
+      --input: hsl(20 6% 90%);
+      --ring: hsl(142 76% 36%);
+      --radius: 8px;
+    }
+    
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+    }
+    
+    .upload-zone {
+      border: 2px dashed hsl(var(--border));
+      transition: all 0.3s ease;
+    }
+    
+    .upload-zone:hover {
+      border-color: hsl(var(--primary));
+      background-color: hsl(var(--muted));
+    }
+    </style>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-background text-foreground font-sans">
+    <!-- @COMPONENT: Header -->
+    <header class="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-seedling text-primary-foreground text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-foreground">Krishi AI</h1>
+                        <p class="text-sm text-muted-foreground">Smart Farming Technology</p>
+                    </div>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center space-x-4">
+                    <select class="bg-muted border border-border rounded-md px-3 py-2 text-sm" data-implementation="Multi-language support">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="mr">मराठी</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="te">తెలుగు</option>
+                    </select>
+                    
+                    <button class="p-2 hover:bg-muted rounded-lg transition-colors" data-implementation="User profile menu">
+                        <i class="fas fa-user-circle text-xl text-muted-foreground"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <main class="container mx-auto px-4 py-6 space-y-8">
+        
+        <!-- @COMPONENT: HeroSection -->
+        <section class="bg-gradient-to-r from-primary to-accent rounded-xl p-8 text-center text-white">
+            <!-- Farmers using modern technology in rice fields -->
+            <div class="mb-6">
+                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400" 
+                     alt="Farmers using modern technology" 
+                     class="w-full h-48 object-cover rounded-lg mb-4 opacity-90" data-mock="true">
+            </div>
+            <h2 class="text-3xl font-bold mb-4">Transform Your Farming with AI Technology</h2>
+            <p class="text-lg mb-6 opacity-90">Get instant crop disease detection, market insights, and connect directly with buyers</p>
+            <button class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" 
+                    data-event="click:startTour">
+                Get Started Today
+            </button>
+        </section>
+        <!-- @END_COMPONENT: HeroSection -->
+
+        <!-- @COMPONENT: QuickActions -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- @STATE: isUploading:boolean = false -->
+            <div class="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow cursor-pointer"
+                 data-event="click:openDiseaseDetection">
+                <div class="feature-icon bg-red-100 text-red-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                    <i class="fas fa-camera text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-sm">Disease Detection</h3>
+                <p class="text-xs text-muted-foreground mt-1">Upload crop photo</p>
+            </div>
+
+            <div class="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow cursor-pointer"
+                 data-event="click:openChatbot">
+                <div class="feature-icon bg-blue-100 text-blue-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                    <i class="fas fa-robot text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-sm">AI Assistant</h3>
+                <p class="text-xs text-muted-foreground mt-1">Ask farming questions</p>
+            </div>
+
+            <div class="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow cursor-pointer"
+                 data-event="click:openWeather">
+                <div class="feature-icon bg-yellow-100 text-yellow-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                    <i class="fas fa-cloud-sun text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-sm">Weather</h3>
+                <p class="text-xs text-muted-foreground mt-1">Local forecasts</p>
+            </div>
+
+            <div class="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow cursor-pointer"
+                 data-event="click:openMarketplace">
+                <div class="feature-icon bg-green-100 text-green-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                    <i class="fas fa-store text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-sm">Marketplace</h3>
+                <p class="text-xs text-muted-foreground mt-1">Buy/Sell tools</p>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: QuickActions -->
+
+        <!-- @COMPONENT: CropDiseaseDetection -->
+        <section class="bg-card border border-border rounded-xl p-6" id="disease-detection">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-microscope text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold">Crop Disease Detection</h3>
+                    <p class="text-muted-foreground">Upload a photo to identify diseases and get treatment recommendations</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <div class="upload-zone rounded-lg p-8 text-center mb-4" data-implementation="File upload with drag-and-drop">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-muted-foreground mb-4"></i>
+                        <p class="text-lg font-semibold mb-2">Upload Crop Photo</p>
+                        <p class="text-muted-foreground text-sm mb-4">Drag and drop or click to browse</p>
+                        <button class="bg-primary text-primary-foreground px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            Choose Photo
+                        </button>
+                        <p class="text-xs text-muted-foreground mt-2">Supports JPG, PNG up to 10MB</p>
+                    </div>
+
+                    <!-- Sample Disease Examples -->
+                    <div class="grid grid-cols-2 gap-2">
+                        <!-- Tomato plant with blight disease -->
+                        <img src="https://pixabay.com/get/g1bf895e9671ea4997e03a5c4ddf21cdb31674534dc935acf528eec20e135610dcca25b49719a9db809ebb6b84229707e5b8d3652d7f7fc7a96d2f4f4a5763404_1280.jpg" 
+                             alt="Crop disease example" 
+                             class="rounded-lg cursor-pointer hover:opacity-80 transition-opacity" data-mock="true">
+                        <!-- Wheat field with rust disease -->
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                             alt="Crop disease example" 
+                             class="rounded-lg cursor-pointer hover:opacity-80 transition-opacity" data-mock="true">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-muted rounded-lg p-4" data-mock="true">
+                        <h4 class="font-semibold text-green-600 mb-2">✓ Disease Identified: Late Blight</h4>
+                        <p class="text-sm text-muted-foreground mb-3">Confidence: 94%</p>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <h5 class="font-medium text-sm mb-2">Organic Solutions:</h5>
+                                <ul class="text-sm text-muted-foreground space-y-1">
+                                    <li>• Copper-based fungicides</li>
+                                    <li>• Neem oil spray (2-3 times weekly)</li>
+                                    <li>• Improve air circulation</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-medium text-sm mb-2">Chemical Solutions:</h5>
+                                <ul class="text-sm text-muted-foreground space-y-1">
+                                    <li>• Metalaxyl + Mancozeb</li>
+                                    <li>• Chlorothalonil spray</li>
+                                    <li>• Follow 7-14 day intervals</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-accent text-accent-foreground py-2 rounded-lg mt-4 hover:bg-accent/90 transition-colors">
+                            Get Detailed Treatment Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: CropDiseaseDetection -->
+
+        <!-- @COMPONENT: AIAssistant -->
+        <section class="bg-card border border-border rounded-xl p-6">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-comments text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold">AI Farming Assistant</h3>
+                    <p class="text-muted-foreground">Ask questions about farming, crops, and get instant expert advice</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <!-- Chat Interface -->
+                    <div class="border border-border rounded-lg h-64 p-4 mb-4 overflow-y-auto bg-muted/30" data-implementation="Chat message container with scroll">
+                        <div class="space-y-3" data-mock="true">
+                            <div class="flex items-start space-x-2">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-robot text-white text-sm"></i>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 max-w-xs">
+                                    <p class="text-sm">Hello! I'm your AI farming assistant. Ask me anything about crops, diseases, weather, or farming techniques.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-2 flex-row-reverse">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-sm"></i>
+                                </div>
+                                <div class="bg-primary text-primary-foreground rounded-lg p-3 max-w-xs">
+                                    <p class="text-sm">When should I plant tomatoes in Maharashtra?</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-2">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-robot text-white text-sm"></i>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 max-w-xs">
+                                    <p class="text-sm">In Maharashtra, the best time to plant tomatoes is during the Rabi season (October-November) and summer season (January-February). The current weather conditions are ideal for planting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-2">
+                        <input type="text" 
+                               placeholder="Ask about farming, crops, weather..." 
+                               class="flex-1 border border-border rounded-lg px-4 py-2 bg-input"
+                               data-implementation="Chat input with auto-complete">
+                        <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+                                data-event="click:sendMessage">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <button class="bg-accent text-accent-foreground px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors"
+                                data-event="click:startVoiceInput" data-implementation="Voice input using Web Speech API">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-semibold">Common Questions:</h4>
+                    <div class="space-y-2">
+                        <button class="w-full text-left bg-muted hover:bg-muted/80 rounded-lg p-3 text-sm transition-colors"
+                                data-event="click:askQuestion" data-question="pest-control">
+                            🐛 How to control pests naturally?
+                        </button>
+                        <button class="w-full text-left bg-muted hover:bg-muted/80 rounded-lg p-3 text-sm transition-colors"
+                                data-event="click:askQuestion" data-question="soil-health">
+                            🌱 How to improve soil health?
+                        </button>
+                        <button class="w-full text-left bg-muted hover:bg-muted/80 rounded-lg p-3 text-sm transition-colors"
+                                data-event="click:askQuestion" data-question="irrigation">
+                            💧 Best irrigation practices?
+                        </button>
+                        <button class="w-full text-left bg-muted hover:bg-muted/80 rounded-lg p-3 text-sm transition-colors"
+                                data-event="click:askQuestion" data-question="fertilizers">
+                            🧪 Organic vs chemical fertilizers?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: AIAssistant -->
+
+        <!-- @COMPONENT: WeatherAndMarket -->
+        <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Weather Section -->
+            <section class="bg-card border border-border rounded-xl p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-cloud-sun text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Weather Forecast</h3>
+                        <p class="text-muted-foreground">Hyper-local weather and soil advisories</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4" data-mock="true" data-implementation="Weather API integration">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg p-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm opacity-90">Pune, Maharashtra</p>
+                                <p class="text-2xl font-bold">28°C</p>
+                                <p class="text-sm">Partly Cloudy</p>
+                            </div>
+                            <i class="fas fa-cloud-sun text-4xl opacity-80"></i>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div class="bg-muted rounded-lg p-3">
+                            <p class="text-sm font-medium">Today</p>
+                            <i class="fas fa-sun text-yellow-500 my-2"></i>
+                            <p class="text-sm">32°/24°</p>
+                        </div>
+                        <div class="bg-muted rounded-lg p-3">
+                            <p class="text-sm font-medium">Tomorrow</p>
+                            <i class="fas fa-cloud-rain text-blue-500 my-2"></i>
+                            <p class="text-sm">26°/20°</p>
+                        </div>
+                        <div class="bg-muted rounded-lg p-3">
+                            <p class="text-sm font-medium">Day 3</p>
+                            <i class="fas fa-cloud text-gray-500 my-2"></i>
+                            <p class="text-sm">29°/22°</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                        <h4 class="font-semibold text-amber-800 mb-2">🌾 Farming Advisory</h4>
+                        <p class="text-sm text-amber-700">Rain expected tomorrow. Good time for transplanting. Avoid pesticide application for next 2 days.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analysis Section -->
+            <section class="bg-card border border-border rounded-xl p-6">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Market Prices</h3>
+                        <p class="text-muted-foreground">Real-time mandi prices and trends</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4" data-mock="true" data-implementation="Market price API integration">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-muted rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-seedling text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Wheat</p>
+                                    <p class="text-sm text-muted-foreground">Per quintal</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-green-600">₹2,150</p>
+                                <p class="text-sm text-green-600">+5.2%</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-muted rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-apple-alt text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Tomato</p>
+                                    <p class="text-sm text-muted-foreground">Per quintal</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-red-600">₹3,800</p>
+                                <p class="text-sm text-red-600">-2.1%</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-muted rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-corn text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Onion</p>
+                                    <p class="text-sm text-muted-foreground">Per quintal</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-green-600">₹1,650</p>
+                                <p class="text-sm text-green-600">+8.3%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-accent text-accent-foreground py-2 rounded-lg hover:bg-accent/90 transition-colors">
+                        View All Prices
+                    </button>
+                </div>
+            </section>
+        </div>
+        <!-- @END_COMPONENT: WeatherAndMarket -->
+
+        <!-- @COMPONENT: Marketplace -->
+        <section class="bg-card border border-border rounded-xl p-6">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Agricultural Marketplace</h3>
+                        <p class="text-muted-foreground">Discover and purchase modern farming tools</p>
+                    </div>
+                </div>
+                <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                    View All
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-4" data-mock="true">
+                <!-- Modern tractor in agricultural field -->
+                <div class="bg-muted rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                         alt="Agricultural tractor" 
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-semibold mb-1">Smart Tractor</h4>
+                    <p class="text-sm text-muted-foreground mb-2">GPS-enabled farming</p>
+                    <p class="font-bold text-primary">₹8,50,000</p>
+                </div>
+
+                <!-- Drone spraying crops -->
+                <div class="bg-muted rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                         alt="Agricultural drone" 
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-semibold mb-1">Crop Spraying Drone</h4>
+                    <p class="text-sm text-muted-foreground mb-2">Precision agriculture</p>
+                    <p class="font-bold text-primary">₹2,75,000</p>
+                </div>
+
+                <!-- Soil testing equipment -->
+                <div class="bg-muted rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                         alt="Soil testing kit" 
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-semibold mb-1">Soil Test Kit</h4>
+                    <p class="text-sm text-muted-foreground mb-2">Digital pH meter</p>
+                    <p class="font-bold text-primary">₹15,500</p>
+                </div>
+
+                <!-- Smart irrigation system -->
+                <div class="bg-muted rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
+                         alt="Smart irrigation system" 
+                         class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-semibold mb-1">Smart Irrigation</h4>
+                    <p class="text-sm text-muted-foreground mb-2">IoT water management</p>
+                    <p class="font-bold text-primary">₹45,000</p>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Marketplace -->
+
+        <!-- @COMPONENT: GovernmentSchemes -->
+        <section class="bg-card border border-border rounded-xl p-6">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-university text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold">Government Schemes</h3>
+                    <p class="text-muted-foreground">Navigate and access government aid and subsidies</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6" data-mock="true">
+                <div>
+                    <div class="space-y-4">
+                        <div class="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h4 class="font-semibold text-green-600 mb-2">PM-KISAN Scheme</h4>
+                                    <p class="text-sm text-muted-foreground mb-3">Direct income support of ₹6,000 per year to farmers</p>
+                                    <div class="flex items-center space-x-4 text-sm">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Active</span>
+                                        <span class="text-muted-foreground">Deadline: 31 Mar 2024</span>
+                                    </div>
+                                </div>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm hover:bg-primary/90 transition-colors">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h4 class="font-semibold text-blue-600 mb-2">Soil Health Card</h4>
+                                    <p class="text-sm text-muted-foreground mb-3">Free soil testing and nutrient recommendations</p>
+                                    <div class="flex items-center space-x-4 text-sm">
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">Available</span>
+                                        <span class="text-muted-foreground">Processing: 7-14 days</span>
+                                    </div>
+                                </div>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm hover:bg-primary/90 transition-colors">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h4 class="font-semibold text-purple-600 mb-2">Crop Insurance</h4>
+                                    <p class="text-sm text-muted-foreground mb-3">Insurance coverage for crop losses due to natural disasters</p>
+                                    <div class="flex items-center space-x-4 text-sm">
+                                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">Seasonal</span>
+                                        <span class="text-muted-foreground">Premium: 2% of sum insured</span>
+                                    </div>
+                                </div>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm hover:bg-primary/90 transition-colors">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 mb-4">
+                        <h4 class="font-semibold text-indigo-800 mb-3">📋 Application Tracker</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-sm">PM-KISAN Application</p>
+                                    <p class="text-xs text-muted-foreground">Application ID: PK2024001234</p>
+                                </div>
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Under Review</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-medium text-sm">Soil Health Card</p>
+                                    <p class="text-xs text-muted-foreground">Application ID: SHC2024005678</p>
+                                </div>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Approved</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Required Documents:</h4>
+                        <ul class="text-sm text-muted-foreground space-y-1">
+                            <li>✓ Aadhaar Card</li>
+                            <li>✓ Land Records (7/12 Extract)</li>
+                            <li>✓ Bank Account Details</li>
+                            <li>✓ Mobile Number (linked to Aadhaar)</li>
+                        </ul>
+                        
+                        <button class="w-full bg-accent text-accent-foreground py-2 rounded-lg hover:bg-accent/90 transition-colors mt-4">
+                            View All Schemes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: GovernmentSchemes -->
+
+        <!-- @COMPONENT: D2BConnect -->
+        <section class="bg-card border border-border rounded-xl p-6">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-handshake text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold">Direct to Business Connect</h3>
+                    <p class="text-muted-foreground">Connect directly with businesses to sell your produce at the best prices</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6" data-mock="true">
+                <div class="md:col-span-2">
+                    <div class="space-y-4">
+                        <div class="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-building text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Fresh Foods Ltd.</h4>
+                                        <p class="text-sm text-muted-foreground">Food Processing Company</p>
+                                    </div>
+                                </div>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">4.8★</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-sm font-medium">Buying: Tomatoes</p>
+                                    <p class="text-lg font-bold text-green-600">₹3,200/quintal</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Quantity Needed</p>
+                                    <p class="text-lg font-bold">500 quintals</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-muted-foreground">
+                                    <p>📍 Mumbai, Maharashtra • ⏰ Payment: 24 hours</p>
+                                </div>
+                                <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                                    Connect
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-leaf text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Organic Exports Co.</h4>
+                                        <p class="text-sm text-muted-foreground">Export Company</p>
+                                    </div>
+                                </div>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">4.6★</span>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-sm font-medium">Buying: Wheat</p>
+                                    <p class="text-lg font-bold text-green-600">₹2,300/quintal</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Quantity Needed</p>
+                                    <p class="text-lg font-bold">1000 quintals</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-muted-foreground">
+                                    <p>📍 Pune, Maharashtra • ⏰ Payment: 48 hours</p>
+                                </div>
+                                <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                                    Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-4">
+                        <h4 class="font-semibold text-orange-800 mb-3">📈 Your Sales Dashboard</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm">This Month</span>
+                                <span class="font-bold">₹2,45,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Pending Payments</span>
+                                <span class="font-bold text-yellow-600">₹45,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Active Contracts</span>
+                                <span class="font-bold text-green-600">3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h4 class="font-semibold">Recent Transactions:</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Fresh Foods Ltd.</span>
+                                <span class="text-green-600">+₹96,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Agro Processors</span>
+                                <span class="text-green-600">+₹1,20,000</span>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors mt-4">
+                            List Your Produce
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: D2BConnect -->
+
+    </main>
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-card border-t border-border mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-seedling text-primary-foreground"></i>
+                        </div>
+                        <span class="font-bold">Krishi AI</span>
+                    </div>
+                    <p class="text-sm text-muted-foreground">Empowering farmers with AI technology for better yields and sustainable farming.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Features</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>Disease Detection</li>
+                        <li>AI Assistant</li>
+                        <li>Weather Forecasts</li>
+                        <li>Market Prices</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>Government Schemes</li>
+                        <li>Marketplace</li>
+                        <li>D2B Connect</li>
+                        <li>Soil Health</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>Help Center</li>
+                        <li>Contact Us</li>
+                        <li>Training Videos</li>
+                        <li>Community Forum</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-border mt-8 pt-6 text-center">
+                <p class="text-sm text-muted-foreground">&copy; 2024 Krishi AI. All rights reserved. Made with ❤️ for farmers.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+    // Basic interactivity for demonstration
+    (function() {
+        // TODO: Implement disease detection upload functionality
+        // TODO: Implement AI chatbot with OpenAI integration
+        // TODO: Implement weather API integration
+        // TODO: Implement market price API integration
+        // TODO: Implement voice assistant functionality
+        // TODO: Implement government schemes API integration
+        // TODO: Implement marketplace functionality
+        // TODO: Implement D2B connect features
+        
+        // Mock interaction handlers for demonstration
+        document.addEventListener('click', function(e) {
+            // Handle quick action clicks
+            if (e.target.closest('[data-event*="click:"]')) {
+                const action = e.target.closest('[data-event*="click:"]').getAttribute('data-event').split(':')[1];
+                console.log('Action triggered:', action);
+                
+                // Show appropriate sections based on action
+                switch(action) {
+                    case 'openDiseaseDetection':
+                        document.getElementById('disease-detection').scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    case 'openChatbot':
+                        // TODO: Open chatbot modal or section
+                        break;
+                    case 'openWeather':
+                        // TODO: Show detailed weather information
+                        break;
+                    case 'openMarketplace':
+                        // TODO: Navigate to marketplace section
+                        break;
+                }
+            }
+        });
+
+        // Mock file upload handler
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'file') {
+                console.log('File selected for disease detection:', e.target.files[0]);
+                // TODO: Implement actual file upload and disease detection
+            }
+        });
+
+        // Mock voice input handler
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('[data-implementation*="Voice input"]')) {
+                console.log('Voice input activated');
+                // TODO: Implement Web Speech API for voice input
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

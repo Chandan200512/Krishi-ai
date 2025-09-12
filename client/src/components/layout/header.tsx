@@ -9,10 +9,10 @@ export default function Header() {
 
   const languages = [
     { value: "en", label: "English" },
-    { value: "hi", label: "हिंदी" },
-    { value: "mr", label: "मराठी" },
+    { value: "ka", label: "ಕನ್ನಡ" },
     { value: "ta", label: "தமிழ்" },
     { value: "te", label: "తెలుగు" },
+    { value: "hi", label: "हिंदी" },
   ];
 
   return (

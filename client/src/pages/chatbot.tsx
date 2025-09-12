@@ -124,9 +124,9 @@ export default function Chatbot() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="en">English</SelectItem>
-                <SelectItem value="hi">हिंदी</SelectItem>
-                <SelectItem value="mr">मराठी</SelectItem>
+                <SelectItem value="ka">ಕನ್ನಡ</SelectItem>
                 <SelectItem value="ta">தமிழ்</SelectItem>
+                <SelectItem value="hi">हिंदी</SelectItem>
                 <SelectItem value="te">తెలుగు</SelectItem>
               </SelectContent>
             </Select>

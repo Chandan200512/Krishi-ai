@@ -171,7 +171,7 @@ export class MemStorage implements IStorage {
         cropName: "Tomato",
         pricePerQuintal: 3800,
         changePercent: -2.1,
-        market: "Mumbai Mandi",
+        market: "Kolar Mandi",
         updatedAt: new Date(),
       },
       {
@@ -193,7 +193,7 @@ export class MemStorage implements IStorage {
         buyingCrop: "Tomatoes",
         priceOffered: 3200,
         quantityNeeded: 500,
-        location: "Mumbai, Maharashtra",
+        location: "Kolar, Karnataka",
         rating: 4.8,
         paymentTerms: "Payment within 24 hours",
         contactInfo: { phone: "+91-9876543210", email: "procurement@freshfoods.com" },

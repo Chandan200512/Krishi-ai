@@ -90,8 +90,8 @@ export async function generateFarmingAdvice(question: string, language: string =
 
 function getLanguageName(code: string): string {
   const languages: Record<string, string> = {
-    "hi": "Hindi",
-    "mr": "Marathi", 
+    "ka": "Kannada",
+    "hi": "Hindi", 
     "ta": "Tamil",
     "te": "Telugu",
     "en": "English"

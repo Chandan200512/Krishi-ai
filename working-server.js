@@ -98,7 +98,7 @@ const initializeSampleData = () => {
       cropName: "Tomato",
       pricePerQuintal: 3800,
       changePercent: -2.1,
-      market: "Mumbai Mandi",
+      market: "Kolar Mandi",
       updatedAt: new Date(),
     },
   ];
@@ -112,7 +112,7 @@ const initializeSampleData = () => {
       buyingCrop: "Tomatoes",
       priceOffered: 3200,
       quantityNeeded: 500,
-      location: "Mumbai, Maharashtra",
+      location: "Kgf,Kolar, Karnataka",
       rating: 4.8,
       paymentTerms: "Payment within 24 hours",
       contactInfo: { phone: "+91-9876543210", email: "procurement@freshfoods.com" },
@@ -155,7 +155,7 @@ const mockGenerateFarmingAdvice = async (question, language = "en") => {
 
 const mockGetWeatherData = async (location) => {
   return {
-    location: location || "Mumbai, Maharashtra",
+    location: location || "kolar, Karnataka",
     temperature: 28,
     humidity: 75,
     windSpeed: 12,

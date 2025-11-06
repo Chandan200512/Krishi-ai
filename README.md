@@ -16,11 +16,14 @@ It provides **crop disease detection**, an **AI-powered chatbot**, **marketplace
 - 🛒 **Marketplace for Farmers**  
   Buy & sell crops, fertilizers, and seeds in a **localized e-commerce system** built within the platform.  
 
-- 🔗 **B2B Connect**  
+- 🔗 **D2B Connect**  
   A dedicated space for **agribusinesses, suppliers, and distributors** to collaborate and trade.  
 
 - ⚙️ **Tools & Machinery Access**  
   Farmers can browse, rent, or purchase modern farming machinery and tools.  
+  
+- **SCHEMES**
+     Apply to the schemes that are live
 
 ---
 
@@ -31,7 +34,7 @@ It provides **crop disease detection**, an **AI-powered chatbot**, **marketplace
 - Styling: **Tailwind CSS**  
 - State Management: **Redux Toolkit**  
 - Routing: **React Router v6**  
-- Language: **JavaScript (ES6+)**  
+- Language: **typescript**  
 
 **Backend (API & AI Services)**  
 - Framework: **Flask (Python 3.9+)**  
